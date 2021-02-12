@@ -20,12 +20,6 @@ dependencies = [
 
 [[package]]
 name = "bit_field"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ed8765909f9009617974ab6b7d332625b320b33c326b1e9321382ef1999b5d56"
-
-[[package]]
-name = "bit_field"
 version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dcb6dd1c2376d2e096796e234a70e17e94cc2d5d54ff8ce42b28cef1d0d359a4"
@@ -51,26 +45,26 @@ dependencies = [
 
 [[package]]
 name = "gd32vf103-pac"
-version = "0.2.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "23d2b56f9ea667f247ff79e58e52051af7d618b9d76ebc8eaaec087e8cc3e8ad"
+checksum = "5ffd430737a49edbd1c0241b58cabe79a7ac7ebe208f67dc838c1c981eb60e83"
 dependencies = [
  "bare-metal",
- "riscv 0.5.4",
+ "riscv",
  "vcell",
 ]
 
 [[package]]
 name = "gd32vf103xx-hal"
-version = "0.2.3"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "05e6cdcd5eb9e52318d76473ff72420d606f1c28168df3db1513d6b40318bc25"
+checksum = "16b3541c3a15a5dec7c42c41ee1686c190ed79c7909e8ad005cc367bf59decd9"
 dependencies = [
  "cast",
  "embedded-hal",
  "gd32vf103-pac",
  "nb 0.1.3",
- "riscv 0.5.4",
+ "riscv",
  "vcell",
  "void",
 ]
@@ -80,6 +74,18 @@ name = "lazy_static"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
+
+[[package]]
+name = "longan-nano"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "51d45bec8d3fe16cc1cf9c1691b77bd0748a0ff5a4debb8058987457961f5770"
+dependencies = [
+ "embedded-hal",
+ "gd32vf103xx-hal",
+ "nb 0.1.3",
+ "riscv",
+]
 
 [[package]]
 name = "memchr"
@@ -182,22 +188,12 @@ checksum = "b5eb417147ba9860a96cfe72a0b93bf88fee1744b5636ec99ab20c1aa9376581"
 
 [[package]]
 name = "riscv"
-version = "0.5.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6bb785ce81e0bd87b8d1d357266eeb03f081d9d5871a31e7f95b7e6fd67002eb"
-dependencies = [
- "bare-metal",
- "bit_field 0.9.0",
-]
-
-[[package]]
-name = "riscv"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2f0b705d428e9d0f78e2bb73093887ee58a83c9688de3faedbb4c0631c4618e"
 dependencies = [
  "bare-metal",
- "bit_field 0.10.1",
+ "bit_field",
  "riscv-target",
 ]
 
@@ -205,9 +201,9 @@ dependencies = [
 name = "riscv-final-test"
 version = "0.1.0"
 dependencies = [
+ "longan-nano",
  "panic-halt",
  "riscv-rt",
- "seedstudio-gd32v",
 ]
 
 [[package]]
@@ -217,7 +213,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b7fe583b2216c75d6f35996919c09fd4011fbc8f6bf31e5fbc97483a6aaa8bdd"
 dependencies = [
  "r0",
- "riscv 0.6.0",
+ "riscv",
  "riscv-rt-macros",
  "riscv-target",
 ]
@@ -251,18 +247,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "138e3e0acb6c9fb258b19b67cb8abd63c00679d2851805ea151465464fe9030a"
 dependencies = [
  "semver",
-]
-
-[[package]]
-name = "seedstudio-gd32v"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0b569e1028d72ef9657b63e9ba2f940583b8ba10b84d9e0b82773e234c7cea21"
-dependencies = [
- "embedded-hal",
- "gd32vf103xx-hal",
- "nb 0.1.3",
- "riscv 0.5.4",
 ]
 
 [[package]]
